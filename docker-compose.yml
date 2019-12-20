@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+  firebird-db:
+    build: .
+    container_name: db-name
+    volumes:
+      - ./volume/backup/:/var/lib/firebird/2.5/backup/
+      - ./volume/data/:/var/lib/firebird/2.5/data/
+    ports:
+      - "3050:3050"
+    labels:
+      - 'traefik.enable=false'
